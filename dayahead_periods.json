@@ -1,0 +1,232 @@
+{
+  "2021": {
+    "imb_annual_avg": 96.25,
+    "da_annual_avg": 102.96,
+    "periods": {
+      "24h": {
+        "n_windows": 34945,
+        "n_negative": 926,
+        "pct_negative": 2.6,
+        "avg_imb_per_mwh_in_neg": -14.63,
+        "avg_da_per_mwh_in_neg": 43.39,
+        "diff_per_mwh_in_neg": -58.02,
+        "avg_total_imb_in_neg": -351.0,
+        "avg_total_da_in_neg": 1041.0
+      },
+      "72h": {
+        "n_windows": 34753,
+        "n_negative": 64,
+        "pct_negative": 0.2,
+        "avg_imb_per_mwh_in_neg": -5.62,
+        "avg_da_per_mwh_in_neg": 63.66,
+        "diff_per_mwh_in_neg": -69.28,
+        "avg_total_imb_in_neg": -405.0,
+        "avg_total_da_in_neg": 4584.0
+      },
+      "7d": {
+        "n_windows": 34369,
+        "n_negative": 0,
+        "pct_negative": 0.0,
+        "avg_imb_per_mwh_in_neg": 0,
+        "avg_da_per_mwh_in_neg": 0,
+        "diff_per_mwh_in_neg": 0,
+        "avg_total_imb_in_neg": 0,
+        "avg_total_da_in_neg": 0
+      },
+      "14d": {
+        "n_windows": 33697,
+        "n_negative": 0,
+        "pct_negative": 0.0,
+        "avg_imb_per_mwh_in_neg": 0,
+        "avg_da_per_mwh_in_neg": 0,
+        "diff_per_mwh_in_neg": 0,
+        "avg_total_imb_in_neg": 0,
+        "avg_total_da_in_neg": 0
+      }
+    }
+  },
+  "2022": {
+    "imb_annual_avg": 234.9,
+    "da_annual_avg": 241.91,
+    "periods": {
+      "24h": {
+        "n_windows": 34945,
+        "n_negative": 328,
+        "pct_negative": 0.9,
+        "avg_imb_per_mwh_in_neg": -27.7,
+        "avg_da_per_mwh_in_neg": 120.34,
+        "diff_per_mwh_in_neg": -148.04,
+        "avg_total_imb_in_neg": -665.0,
+        "avg_total_da_in_neg": 2888.0
+      },
+      "72h": {
+        "n_windows": 34753,
+        "n_negative": 0,
+        "pct_negative": 0.0,
+        "avg_imb_per_mwh_in_neg": 0,
+        "avg_da_per_mwh_in_neg": 0,
+        "diff_per_mwh_in_neg": 0,
+        "avg_total_imb_in_neg": 0,
+        "avg_total_da_in_neg": 0
+      },
+      "7d": {
+        "n_windows": 34369,
+        "n_negative": 0,
+        "pct_negative": 0.0,
+        "avg_imb_per_mwh_in_neg": 0,
+        "avg_da_per_mwh_in_neg": 0,
+        "diff_per_mwh_in_neg": 0,
+        "avg_total_imb_in_neg": 0,
+        "avg_total_da_in_neg": 0
+      },
+      "14d": {
+        "n_windows": 33697,
+        "n_negative": 0,
+        "pct_negative": 0.0,
+        "avg_imb_per_mwh_in_neg": 0,
+        "avg_da_per_mwh_in_neg": 0,
+        "diff_per_mwh_in_neg": 0,
+        "avg_total_imb_in_neg": 0,
+        "avg_total_da_in_neg": 0
+      }
+    }
+  },
+  "2023": {
+    "imb_annual_avg": 93.62,
+    "da_annual_avg": 95.81,
+    "periods": {
+      "24h": {
+        "n_windows": 34945,
+        "n_negative": 1116,
+        "pct_negative": 3.2,
+        "avg_imb_per_mwh_in_neg": -24.76,
+        "avg_da_per_mwh_in_neg": 38.28,
+        "diff_per_mwh_in_neg": -63.04,
+        "avg_total_imb_in_neg": -594.0,
+        "avg_total_da_in_neg": 919.0
+      },
+      "72h": {
+        "n_windows": 34753,
+        "n_negative": 227,
+        "pct_negative": 0.7,
+        "avg_imb_per_mwh_in_neg": -10.28,
+        "avg_da_per_mwh_in_neg": 62.36,
+        "diff_per_mwh_in_neg": -72.63,
+        "avg_total_imb_in_neg": -740.0,
+        "avg_total_da_in_neg": 4490.0
+      },
+      "7d": {
+        "n_windows": 34369,
+        "n_negative": 0,
+        "pct_negative": 0.0,
+        "avg_imb_per_mwh_in_neg": 0,
+        "avg_da_per_mwh_in_neg": 0,
+        "diff_per_mwh_in_neg": 0,
+        "avg_total_imb_in_neg": 0,
+        "avg_total_da_in_neg": 0
+      },
+      "14d": {
+        "n_windows": 33697,
+        "n_negative": 0,
+        "pct_negative": 0.0,
+        "avg_imb_per_mwh_in_neg": 0,
+        "avg_da_per_mwh_in_neg": 0,
+        "diff_per_mwh_in_neg": 0,
+        "avg_total_imb_in_neg": 0,
+        "avg_total_da_in_neg": 0
+      }
+    }
+  },
+  "2024": {
+    "imb_annual_avg": 66.18,
+    "da_annual_avg": 77.29,
+    "periods": {
+      "24h": {
+        "n_windows": 35041,
+        "n_negative": 3555,
+        "pct_negative": 10.1,
+        "avg_imb_per_mwh_in_neg": -32.02,
+        "avg_da_per_mwh_in_neg": 50.35,
+        "diff_per_mwh_in_neg": -82.37,
+        "avg_total_imb_in_neg": -768.0,
+        "avg_total_da_in_neg": 1208.0
+      },
+      "72h": {
+        "n_windows": 34849,
+        "n_negative": 1408,
+        "pct_negative": 4.0,
+        "avg_imb_per_mwh_in_neg": -12.94,
+        "avg_da_per_mwh_in_neg": 55.63,
+        "diff_per_mwh_in_neg": -68.57,
+        "avg_total_imb_in_neg": -932.0,
+        "avg_total_da_in_neg": 4005.0
+      },
+      "7d": {
+        "n_windows": 34465,
+        "n_negative": 309,
+        "pct_negative": 0.9,
+        "avg_imb_per_mwh_in_neg": -10.74,
+        "avg_da_per_mwh_in_neg": 46.74,
+        "diff_per_mwh_in_neg": -57.48,
+        "avg_total_imb_in_neg": -1804.0,
+        "avg_total_da_in_neg": 7853.0
+      },
+      "14d": {
+        "n_windows": 33793,
+        "n_negative": 0,
+        "pct_negative": 0.0,
+        "avg_imb_per_mwh_in_neg": 0,
+        "avg_da_per_mwh_in_neg": 0,
+        "diff_per_mwh_in_neg": 0,
+        "avg_total_imb_in_neg": 0,
+        "avg_total_da_in_neg": 0
+      }
+    }
+  },
+  "2025": {
+    "imb_annual_avg": 72.22,
+    "da_annual_avg": 87.13,
+    "periods": {
+      "24h": {
+        "n_windows": 34945,
+        "n_negative": 1371,
+        "pct_negative": 3.9,
+        "avg_imb_per_mwh_in_neg": -19.42,
+        "avg_da_per_mwh_in_neg": 45.72,
+        "diff_per_mwh_in_neg": -65.14,
+        "avg_total_imb_in_neg": -466.0,
+        "avg_total_da_in_neg": 1097.0
+      },
+      "72h": {
+        "n_windows": 34753,
+        "n_negative": 174,
+        "pct_negative": 0.5,
+        "avg_imb_per_mwh_in_neg": -8.16,
+        "avg_da_per_mwh_in_neg": 52.88,
+        "diff_per_mwh_in_neg": -61.04,
+        "avg_total_imb_in_neg": -588.0,
+        "avg_total_da_in_neg": 3807.0
+      },
+      "7d": {
+        "n_windows": 34369,
+        "n_negative": 0,
+        "pct_negative": 0.0,
+        "avg_imb_per_mwh_in_neg": 0,
+        "avg_da_per_mwh_in_neg": 0,
+        "diff_per_mwh_in_neg": 0,
+        "avg_total_imb_in_neg": 0,
+        "avg_total_da_in_neg": 0
+      },
+      "14d": {
+        "n_windows": 33697,
+        "n_negative": 0,
+        "pct_negative": 0.0,
+        "avg_imb_per_mwh_in_neg": 0,
+        "avg_da_per_mwh_in_neg": 0,
+        "diff_per_mwh_in_neg": 0,
+        "avg_total_imb_in_neg": 0,
+        "avg_total_da_in_neg": 0
+      }
+    }
+  }
+}

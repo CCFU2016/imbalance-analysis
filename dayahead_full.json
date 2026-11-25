@@ -1,0 +1,396 @@
+{
+  "baseline": {
+    "2021": {
+      "imb_annual": 96.25,
+      "da_annual": 102.96,
+      "windows": {
+        "24h": {
+          "imb_pct": 2.6,
+          "da_pct": 0.0
+        },
+        "72h": {
+          "imb_pct": 0.2,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      }
+    },
+    "2022": {
+      "imb_annual": 234.9,
+      "da_annual": 241.91,
+      "windows": {
+        "24h": {
+          "imb_pct": 0.9,
+          "da_pct": 0.0
+        },
+        "72h": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      }
+    },
+    "2023": {
+      "imb_annual": 93.62,
+      "da_annual": 95.81,
+      "windows": {
+        "24h": {
+          "imb_pct": 3.2,
+          "da_pct": 0.4
+        },
+        "72h": {
+          "imb_pct": 0.7,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      }
+    },
+    "2024": {
+      "imb_annual": 66.18,
+      "da_annual": 77.29,
+      "windows": {
+        "24h": {
+          "imb_pct": 10.1,
+          "da_pct": 0.6
+        },
+        "72h": {
+          "imb_pct": 4.0,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.9,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      }
+    },
+    "2025": {
+      "imb_annual": 72.22,
+      "da_annual": 87.13,
+      "windows": {
+        "24h": {
+          "imb_pct": 3.9,
+          "da_pct": 0.2
+        },
+        "72h": {
+          "imb_pct": 0.5,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      }
+    }
+  },
+  "profiles": {
+    "2021": {
+      "baseload": {
+        "24h": {
+          "imb_pct": 2.6,
+          "da_pct": 0.0
+        },
+        "72h": {
+          "imb_pct": 0.2,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      },
+      "solar": {
+        "24h": {
+          "imb_pct": 5.3,
+          "da_pct": 0.1
+        },
+        "72h": {
+          "imb_pct": 1.6,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      },
+      "residential": {
+        "24h": {
+          "imb_pct": 2.3,
+          "da_pct": 0.0
+        },
+        "72h": {
+          "imb_pct": 0.2,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      }
+    },
+    "2022": {
+      "baseload": {
+        "24h": {
+          "imb_pct": 0.9,
+          "da_pct": 0.0
+        },
+        "72h": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      },
+      "solar": {
+        "24h": {
+          "imb_pct": 2.4,
+          "da_pct": 0.2
+        },
+        "72h": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      },
+      "residential": {
+        "24h": {
+          "imb_pct": 0.9,
+          "da_pct": 0.0
+        },
+        "72h": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      }
+    },
+    "2023": {
+      "baseload": {
+        "24h": {
+          "imb_pct": 3.2,
+          "da_pct": 0.4
+        },
+        "72h": {
+          "imb_pct": 0.7,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      },
+      "solar": {
+        "24h": {
+          "imb_pct": 7.8,
+          "da_pct": 1.0
+        },
+        "72h": {
+          "imb_pct": 4.1,
+          "da_pct": 0.7
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      },
+      "residential": {
+        "24h": {
+          "imb_pct": 3.0,
+          "da_pct": 0.3
+        },
+        "72h": {
+          "imb_pct": 0.6,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      }
+    },
+    "2024": {
+      "baseload": {
+        "24h": {
+          "imb_pct": 10.1,
+          "da_pct": 0.6
+        },
+        "72h": {
+          "imb_pct": 4.0,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.9,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      },
+      "solar": {
+        "24h": {
+          "imb_pct": 18.5,
+          "da_pct": 2.3
+        },
+        "72h": {
+          "imb_pct": 13.3,
+          "da_pct": 0.2
+        },
+        "7d": {
+          "imb_pct": 6.1,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.8,
+          "da_pct": 0.0
+        }
+      },
+      "residential": {
+        "24h": {
+          "imb_pct": 9.7,
+          "da_pct": 0.3
+        },
+        "72h": {
+          "imb_pct": 4.2,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 1.1,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      }
+    },
+    "2025": {
+      "baseload": {
+        "24h": {
+          "imb_pct": 3.9,
+          "da_pct": 0.2
+        },
+        "72h": {
+          "imb_pct": 0.5,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      },
+      "solar": {
+        "24h": {
+          "imb_pct": 12.1,
+          "da_pct": 1.2
+        },
+        "72h": {
+          "imb_pct": 6.0,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.8,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      },
+      "residential": {
+        "24h": {
+          "imb_pct": 3.6,
+          "da_pct": 0.2
+        },
+        "72h": {
+          "imb_pct": 0.4,
+          "da_pct": 0.0
+        },
+        "7d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        },
+        "14d": {
+          "imb_pct": 0.0,
+          "da_pct": 0.0
+        }
+      }
+    }
+  }
+}

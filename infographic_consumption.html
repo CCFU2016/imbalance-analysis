@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imbalance Price Analysis — Consumption Side</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #ffffff;
+    color: #3c3c3c;
+    padding: 40px;
+    min-width: 1100px;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .header { text-align: center; margin-bottom: 40px; }
+
+  .header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ff6600;
+    margin-bottom: 8px;
+  }
+
+  .header p {
+    font-size: 15px;
+    color: #6b7280;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3c3c3c;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff6600;
+  }
+
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+  }
+
+  .legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+  }
+
+  /* Assumptions */
+  .assumptions {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+  }
+
+  .assumptions h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ff6600;
+    margin-bottom: 10px;
+  }
+
+  .assumptions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .assumptions-col h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #3c3c3c;
+    margin-bottom: 6px;
+  }
+
+  .assumptions ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .assumptions li {
+    font-size: 12px;
+    color: #6b7280;
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .assumptions li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ff6600;
+  }
+
+  /* KPI row */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .kpi-card {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #ff6600;
+  }
+
+  .kpi-year {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+
+  .kpi-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: #3c3c3c;
+    margin-bottom: 2px;
+  }
+
+  .kpi-sub {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 2px;
+  }
+
+  .kpi-label {
+    font-size: 10px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .kpi-divider {
+    height: 1px;
+    background: #e5e7eb;
+    margin: 8px 0;
+  }
+
+  .kpi-res-tag {
+    font-size: 10px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .kpi-res-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff6600;
+    margin-bottom: 2px;
+  }
+
+  .kpi-pct {
+    font-size: 11px;
+    font-weight: 600;
+    color: #dc2626;
+  }
+
+  /* Bar chart */
+  .bar-section { margin-bottom: 40px; }
+
+  .bar-chart {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .bar-group { margin-bottom: 16px; }
+  .bar-group:last-child { margin-bottom: 0; }
+
+  .bar-group-year {
+    font-size: 13px;
+    font-weight: 700;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 100px;
+    align-items: center;
+    margin-bottom: 4px;
+    gap: 12px;
+  }
+
+  .bar-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+  }
+
+  .bar-track {
+    height: 24px;
+    background: #f3f4f6;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .bar-amount {
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    color: #3c3c3c;
+  }
+
+  /* Table */
+  .prob-section { margin-bottom: 40px; }
+
+  .prob-table-wrap {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    overflow-x: auto;
+  }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead th {
+    font-size: 11px;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 8px 14px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  thead th:first-child { text-align: left; }
+
+  tbody td {
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  tbody td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: #6b7280;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  .prob-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .prob-pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    min-width: 52px;
+  }
+
+  .prob-res-val {
+    font-size: 11px;
+    font-weight: 600;
+    color: #ff6600;
+  }
+
+  .prob-green { background: rgba(34, 197, 94, 0.1); color: #16a34a; }
+  .prob-low { background: rgba(234, 179, 8, 0.12); color: #a16207; }
+  .prob-med { background: rgba(255, 102, 0, 0.12); color: #cc5200; }
+  .prob-high { background: rgba(220, 38, 38, 0.1); color: #dc2626; }
+
+  /* Risk section */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .risk-card {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .risk-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 16px;
+  }
+
+  .risk-table { width: 100%; }
+
+  .risk-table td {
+    padding: 6px 0;
+    font-size: 12px;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: top;
+  }
+
+  .risk-table tr:last-child td { border-bottom: none; }
+  .risk-table td:first-child { font-weight: 600; color: #6b7280; width: 44px; }
+  .risk-table td:nth-child(2) { color: #3c3c3c; font-weight: 600; }
+  .risk-table td:nth-child(3) { color: #ff6600; font-weight: 600; }
+
+  .risk-label-row td {
+    font-size: 10px !important;
+    color: #9ca3af !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-bottom: 8px !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    font-weight: 600 !important;
+  }
+
+  /* Takeaway */
+  .takeaway {
+    background: rgba(255, 102, 0, 0.05);
+    border: 1px solid rgba(255, 102, 0, 0.2);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+
+  .takeaway h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff6600;
+    margin-bottom: 12px;
+  }
+
+  .takeaway ul { list-style: none; padding: 0; }
+
+  .takeaway li {
+    font-size: 14px;
+    color: #4b5563;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .takeaway li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff6600;
+  }
+
+  .footer {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 12px;
+    margin-top: 16px;
+  }
+
+  /* Export */
+  .export-btn {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .export-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(255, 102, 0, 0.4);
+  }
+
+  .export-btn:active { transform: translateY(0); }
+  .export-btn.exporting { opacity: 0.7; pointer-events: none; }
+  @media print { .export-btn { display: none; } }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Consumption Imbalance Cost Analysis</h1>
+    <p>Cost of consuming 1 MW on the Dutch imbalance market — Flat vs Residential Profile | 2021–2025</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-swatch" style="background:#3c3c3c"></div> Flat (1 MW constant, 24/7)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#ff6600"></div> Residential Profile</div>
+  </div>
+
+  <!-- Assumptions -->
+  <div class="assumptions">
+    <h3>Assumptions</h3>
+    <div class="assumptions-grid">
+      <div class="assumptions-col">
+        <h4>Flat Consumption</h4>
+        <ul>
+          <li>Constant consumption of 1 MW, 24 hours a day, 365 days a year</li>
+          <li>Total annual consumption: ~8,760 MWh</li>
+        </ul>
+      </div>
+      <div class="assumptions-col">
+        <h4>Residential Profile (NEDU E1A-style)</h4>
+        <ul>
+          <li>Shaped to match typical Dutch household consumption patterns</li>
+          <li>Morning peak (07–09): ~1.3–1.5x average</li>
+          <li>Evening peak (17–21): ~1.5–1.8x average (cooking, heating, TV)</li>
+          <li>Night (00–06): ~0.3–0.5x average</li>
+          <li>Winter: +25–30% (heating, lighting) | Summer: -12–15%</li>
+          <li>Normalised to 1 MW average; total MWh varies with season</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Annual Cost -->
+  <div class="section-title"><span class="dot"></span> Annual Consumption Cost (EUR)</div>
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-year">2021</div>
+      <div class="kpi-value">843k</div>
+      <div class="kpi-sub">96.2 EUR/MWh avg</div>
+      <div class="kpi-label">Flat Total Cost</div>
+      <div class="kpi-divider"></div>
+      <div class="kpi-res-tag">Residential</div>
+      <div class="kpi-res-value">983k</div>
+      <div class="kpi-sub">106.9 EUR/MWh avg</div>
+      <div class="kpi-pct">+17% vs flat</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-year">2022</div>
+      <div class="kpi-value">2,058k</div>
+      <div class="kpi-sub">234.9 EUR/MWh avg</div>
+      <div class="kpi-label">Flat Total Cost</div>
+      <div class="kpi-divider"></div>
+      <div class="kpi-res-tag">Residential</div>
+      <div class="kpi-res-value">2,254k</div>
+      <div class="kpi-sub">245.0 EUR/MWh avg</div>
+      <div class="kpi-pct">+10% vs flat</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-year">2023</div>
+      <div class="kpi-value">820k</div>
+      <div class="kpi-sub">93.6 EUR/MWh avg</div>
+      <div class="kpi-label">Flat Total Cost</div>
+      <div class="kpi-divider"></div>
+      <div class="kpi-res-tag">Residential</div>
+      <div class="kpi-res-value">950k</div>
+      <div class="kpi-sub">103.3 EUR/MWh avg</div>
+      <div class="kpi-pct">+16% vs flat</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-year">2024</div>
+      <div class="kpi-value">581k</div>
+      <div class="kpi-sub">66.2 EUR/MWh avg</div>
+      <div class="kpi-label">Flat Total Cost</div>
+      <div class="kpi-divider"></div>
+      <div class="kpi-res-tag">Residential</div>
+      <div class="kpi-res-value">691k</div>
+      <div class="kpi-sub">74.9 EUR/MWh avg</div>
+      <div class="kpi-pct">+19% vs flat</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-year">2025</div>
+      <div class="kpi-value">633k</div>
+      <div class="kpi-sub">72.2 EUR/MWh avg</div>
+      <div class="kpi-label">Flat Total Cost</div>
+      <div class="kpi-divider"></div>
+      <div class="kpi-res-tag">Residential</div>
+      <div class="kpi-res-value">742k</div>
+      <div class="kpi-sub">80.6 EUR/MWh avg</div>
+      <div class="kpi-pct">+17% vs flat</div>
+    </div>
+  </div>
+
+  <!-- Average cost per rolling window -->
+  <div class="section-title"><span class="dot"></span> Average Cost by Rolling Window — EUR total (avg EUR/MWh)</div>
+  <div class="prob-section">
+    <div class="prob-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th colspan="2">24 hours</th>
+            <th colspan="2">72 hours</th>
+            <th colspan="2">7 days</th>
+            <th colspan="2">14 days</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th style="font-size:10px">Flat</th><th style="font-size:10px;color:#ff6600">Resi</th>
+            <th style="font-size:10px">Flat</th><th style="font-size:10px;color:#ff6600">Resi</th>
+            <th style="font-size:10px">Flat</th><th style="font-size:10px;color:#ff6600">Resi</th>
+            <th style="font-size:10px">Flat</th><th style="font-size:10px;color:#ff6600">Resi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2021</td>
+            <td>2,310<br><span style="color:#9ca3af;font-size:11px">(96/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">2,693<br><span style="font-weight:400;font-size:11px">(107/MWh)</span></td>
+            <td>6,930<br><span style="color:#9ca3af;font-size:11px">(96/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">8,079<br><span style="font-weight:400;font-size:11px">(107/MWh)</span></td>
+            <td>16,170<br><span style="color:#9ca3af;font-size:11px">(96/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">18,851<br><span style="font-weight:400;font-size:11px">(108/MWh)</span></td>
+            <td>32,340<br><span style="color:#9ca3af;font-size:11px">(96/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">37,702<br><span style="font-weight:400;font-size:11px">(107/MWh)</span></td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>5,638<br><span style="color:#9ca3af;font-size:11px">(235/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">6,174<br><span style="font-weight:400;font-size:11px">(245/MWh)</span></td>
+            <td>16,914<br><span style="color:#9ca3af;font-size:11px">(235/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">18,522<br><span style="font-weight:400;font-size:11px">(245/MWh)</span></td>
+            <td>39,466<br><span style="color:#9ca3af;font-size:11px">(235/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">43,218<br><span style="font-weight:400;font-size:11px">(245/MWh)</span></td>
+            <td>78,932<br><span style="color:#9ca3af;font-size:11px">(235/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">86,436<br><span style="font-weight:400;font-size:11px">(245/MWh)</span></td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>2,247<br><span style="color:#9ca3af;font-size:11px">(94/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">2,602<br><span style="font-weight:400;font-size:11px">(103/MWh)</span></td>
+            <td>6,741<br><span style="color:#9ca3af;font-size:11px">(94/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">7,806<br><span style="font-weight:400;font-size:11px">(103/MWh)</span></td>
+            <td>15,729<br><span style="color:#9ca3af;font-size:11px">(94/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">18,214<br><span style="font-weight:400;font-size:11px">(103/MWh)</span></td>
+            <td>31,458<br><span style="color:#9ca3af;font-size:11px">(94/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">36,428<br><span style="font-weight:400;font-size:11px">(103/MWh)</span></td>
+          </tr>
+          <tr>
+            <td>2024</td>
+            <td>1,588<br><span style="color:#9ca3af;font-size:11px">(66/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">1,888<br><span style="font-weight:400;font-size:11px">(75/MWh)</span></td>
+            <td>4,764<br><span style="color:#9ca3af;font-size:11px">(66/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">5,664<br><span style="font-weight:400;font-size:11px">(75/MWh)</span></td>
+            <td>11,116<br><span style="color:#9ca3af;font-size:11px">(66/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">13,216<br><span style="font-weight:400;font-size:11px">(75/MWh)</span></td>
+            <td>22,232<br><span style="color:#9ca3af;font-size:11px">(66/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">26,432<br><span style="font-weight:400;font-size:11px">(75/MWh)</span></td>
+          </tr>
+          <tr>
+            <td>2025</td>
+            <td>1,733<br><span style="color:#9ca3af;font-size:11px">(72/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">2,032<br><span style="font-weight:400;font-size:11px">(81/MWh)</span></td>
+            <td>5,199<br><span style="color:#9ca3af;font-size:11px">(72/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">6,096<br><span style="font-weight:400;font-size:11px">(81/MWh)</span></td>
+            <td>12,131<br><span style="color:#9ca3af;font-size:11px">(72/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">14,224<br><span style="font-weight:400;font-size:11px">(81/MWh)</span></td>
+            <td>24,262<br><span style="color:#9ca3af;font-size:11px">(72/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">28,448<br><span style="font-weight:400;font-size:11px">(81/MWh)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Combined worst cost by rolling window -->
+  <div class="section-title"><span class="dot"></span> Worst Cost by Rolling Window — EUR total (avg EUR/MWh)</div>
+  <div class="prob-section">
+    <div class="prob-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th colspan="2">24 hours</th>
+            <th colspan="2">72 hours</th>
+            <th colspan="2">7 days</th>
+            <th colspan="2">14 days</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th style="font-size:10px">Flat</th><th style="font-size:10px;color:#ff6600">Resi</th>
+            <th style="font-size:10px">Flat</th><th style="font-size:10px;color:#ff6600">Resi</th>
+            <th style="font-size:10px">Flat</th><th style="font-size:10px;color:#ff6600">Resi</th>
+            <th style="font-size:10px">Flat</th><th style="font-size:10px;color:#ff6600">Resi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2021</td>
+            <td>8,617<br><span style="color:#9ca3af;font-size:11px">(359/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">11,747<br><span style="font-weight:400;font-size:11px">(377/MWh)</span></td>
+            <td>24,208<br><span style="color:#9ca3af;font-size:11px">(336/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">32,609<br><span style="font-weight:400;font-size:11px">(348/MWh)</span></td>
+            <td>54,028<br><span style="color:#9ca3af;font-size:11px">(322/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">71,765<br><span style="font-weight:400;font-size:11px">(329/MWh)</span></td>
+            <td>94,395<br><span style="color:#9ca3af;font-size:11px">(281/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">128,525<br><span style="font-weight:400;font-size:11px">(294/MWh)</span></td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>20,366<br><span style="color:#9ca3af;font-size:11px">(849/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">18,077<br><span style="font-weight:400;font-size:11px">(856/MWh)</span></td>
+            <td>53,304<br><span style="color:#9ca3af;font-size:11px">(740/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">48,822<br><span style="font-weight:400;font-size:11px">(771/MWh)</span></td>
+            <td>111,700<br><span style="color:#9ca3af;font-size:11px">(665/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">103,250<br><span style="font-weight:400;font-size:11px">(698/MWh)</span></td>
+            <td>197,107<br><span style="color:#9ca3af;font-size:11px">(587/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">186,740<br><span style="font-weight:400;font-size:11px">(614/MWh)</span></td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>7,597<br><span style="color:#9ca3af;font-size:11px">(317/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">9,905<br><span style="font-weight:400;font-size:11px">(371/MWh)</span></td>
+            <td>16,770<br><span style="color:#9ca3af;font-size:11px">(233/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">23,031<br><span style="font-weight:400;font-size:11px">(246/MWh)</span></td>
+            <td>37,787<br><span style="color:#9ca3af;font-size:11px">(225/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">51,440<br><span style="font-weight:400;font-size:11px">(236/MWh)</span></td>
+            <td>60,157<br><span style="color:#9ca3af;font-size:11px">(179/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">81,180<br><span style="font-weight:400;font-size:11px">(186/MWh)</span></td>
+          </tr>
+          <tr>
+            <td>2024</td>
+            <td>12,644<br><span style="color:#9ca3af;font-size:11px">(527/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">19,158<br><span style="font-weight:400;font-size:11px">(614/MWh)</span></td>
+            <td>20,489<br><span style="color:#9ca3af;font-size:11px">(285/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">30,155<br><span style="font-weight:400;font-size:11px">(322/MWh)</span></td>
+            <td>30,142<br><span style="color:#9ca3af;font-size:11px">(179/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">41,354<br><span style="font-weight:400;font-size:11px">(189/MWh)</span></td>
+            <td>48,762<br><span style="color:#9ca3af;font-size:11px">(145/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">62,764<br><span style="font-weight:400;font-size:11px">(156/MWh)</span></td>
+          </tr>
+          <tr>
+            <td>2025</td>
+            <td>6,502<br><span style="color:#9ca3af;font-size:11px">(271/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">8,521<br><span style="font-weight:400;font-size:11px">(374/MWh)</span></td>
+            <td>14,757<br><span style="color:#9ca3af;font-size:11px">(205/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">20,326<br><span style="font-weight:400;font-size:11px">(226/MWh)</span></td>
+            <td>25,934<br><span style="color:#9ca3af;font-size:11px">(154/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">34,981<br><span style="font-weight:400;font-size:11px">(166/MWh)</span></td>
+            <td>46,722<br><span style="color:#9ca3af;font-size:11px">(139/MWh)</span></td>
+            <td style="color:#ff6600;font-weight:600">62,188<br><span style="font-weight:400;font-size:11px">(148/MWh)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Best (cheapest) 24h -->
+  <div class="risk-grid">
+    <div class="risk-card">
+      <h3>Best (Cheapest) 24h — EUR total (avg EUR/MWh)</h3>
+      <table class="risk-table">
+        <tr class="risk-label-row"><td></td><td>Flat</td><td>Residential</td></tr>
+        <tr><td>2021</td><td style="color:#16a34a">-1,253 (-52/MWh)</td><td style="color:#16a34a">-1,064 (-45/MWh)</td></tr>
+        <tr><td>2022</td><td style="color:#16a34a">-893 (-37/MWh)</td><td style="color:#16a34a">-784 (-33/MWh)</td></tr>
+        <tr><td>2023</td><td style="color:#16a34a">-1,985 (-83/MWh)</td><td style="color:#16a34a">-1,804 (-77/MWh)</td></tr>
+        <tr><td>2024</td><td style="color:#16a34a">-3,224 (-134/MWh)</td><td style="color:#16a34a">-3,492 (-148/MWh)</td></tr>
+        <tr><td>2025</td><td style="color:#16a34a">-1,690 (-70/MWh)</td><td style="color:#16a34a">-1,789 (-76/MWh)</td></tr>
+      </table>
+    </div>
+    <div class="risk-card" style="display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;color:#9ca3af;font-size:13px;line-height:1.6">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">5-Year Average Cost</div>
+        <div style="font-size:28px;font-weight:800;color:#3c3c3c">2,703<span style="font-size:14px;font-weight:400;color:#9ca3af"> EUR/day</span></div>
+        <div style="font-size:13px;color:#6b7280">(113 EUR/MWh) flat</div>
+        <div style="margin:8px 0;height:1px;background:#e5e7eb"></div>
+        <div style="font-size:28px;font-weight:800;color:#ff6600">3,078<span style="font-size:14px;font-weight:400;color:#9ca3af"> EUR/day</span></div>
+        <div style="font-size:13px;color:#6b7280">(122 EUR/MWh) residential</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Takeaways -->
+  <div class="takeaway">
+    <h3>Key Takeaways</h3>
+    <ul>
+      <li>Annual consumption cost at imbalance prices ranged from <strong>581k to 2,058k EUR (flat)</strong> and <strong>691k to 2,254k EUR (residential)</strong> over 5 years.</li>
+      <li>The residential profile pays <strong>10–19% more</strong> than flat consumption. Residential demand peaks align with higher-priced evening hours, pushing up the effective average price from ~66–235 to ~75–245 EUR/MWh.</li>
+      <li>The exception is <strong>2022</strong>: the energy crisis drove extreme prices during off-peak/industrial hours, so residential worst-case costs were actually <strong>slightly lower</strong> than flat for 72h, 7d, and 14d windows.</li>
+      <li>Negative-cost days (where you'd be <strong>paid to consume</strong>) occur <strong>1–10% of the time</strong> on a 24h basis. The profiles are nearly identical here — the earning opportunity depends on when negative prices occur, not consumption shape.</li>
+      <li><strong>2024 offered the most earning opportunities</strong> (10% of days) and the lowest average price — the best year for consumers. <strong>2022 was the most expensive by far</strong>, with worst 7-day costs exceeding 100k EUR.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Analysis based on Dutch imbalance settlement prices (Price Surplus) | 15-minute intervals | 2021-01-01 to 2025-12-31
+  </div>
+
+</div>
+
+<button class="export-btn" onclick="exportImage()">Export as PNG</button>
+
+<script>
+function exportImage() {
+  const btn = document.querySelector('.export-btn');
+  btn.textContent = 'Exporting...';
+  btn.classList.add('exporting');
+
+  html2canvas(document.querySelector('.container'), {
+    backgroundColor: '#ffffff',
+    scale: 2,
+    useCORS: true,
+    logging: false,
+  }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'imbalance_consumption_analysis.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    btn.textContent = 'Export as PNG';
+    btn.classList.remove('exporting');
+  }).catch(() => {
+    btn.textContent = 'Export as PNG';
+    btn.classList.remove('exporting');
+    alert('Export failed — try printing to PDF instead (Cmd+P).');
+  });
+}
+</script>
+</body>
+</html>

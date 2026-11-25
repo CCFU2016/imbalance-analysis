@@ -1,0 +1,482 @@
+{
+  "2021": {
+    "flat": {
+      "total_cost": 843143.18,
+      "avg_daily": 2309.98,
+      "avg_price": 96.25,
+      "total_mwh": 8760.0,
+      "max_cost_eur": 843162.29,
+      "max_cost_hours": 8759.2,
+      "max_cost_start": "2021-01-01",
+      "max_cost_end": "2021-12-31",
+      "longest_pos_hours": 8760.0,
+      "longest_pos_days": 365.0,
+      "longest_pos_cost": 843143.18,
+      "periods": {
+        "24h": {
+          "pct_earning": 2.7,
+          "avg_cost": 2309.98,
+          "worst_cost": 8616.69,
+          "worst_date": "2021-12-23",
+          "best_cost": -1253.21,
+          "best_date": "2021-07-31"
+        },
+        "72h": {
+          "pct_earning": 0.3,
+          "avg_cost": 6952.51,
+          "worst_cost": 24208.0,
+          "worst_date": "2021-12-21",
+          "best_cost": -481.57,
+          "best_date": "2021-07-29"
+        },
+        "7d": {
+          "pct_earning": 0.0,
+          "avg_cost": 16263.98,
+          "worst_cost": 54028.34,
+          "worst_date": "2021-12-17",
+          "best_cost": 2865.58,
+          "best_date": "2021-07-27"
+        },
+        "14d": {
+          "pct_earning": 0.0,
+          "avg_cost": 32352.5,
+          "worst_cost": 94394.73,
+          "worst_date": "2021-12-10",
+          "best_cost": 9621.73,
+          "best_date": "2021-02-17"
+        }
+      }
+    },
+    "residential": {
+      "total_cost": 982797.53,
+      "avg_daily": 2692.6,
+      "avg_price": 106.86,
+      "total_mwh": 9197.0,
+      "max_cost_eur": 982897.52,
+      "max_cost_hours": 8749.8,
+      "max_cost_start": "2021-01-01",
+      "max_cost_end": "2021-12-31",
+      "longest_pos_hours": 8750.5,
+      "longest_pos_days": 364.6,
+      "longest_pos_cost": 982879.3,
+      "periods": {
+        "24h": {
+          "pct_earning": 2.7,
+          "avg_cost": 2692.6,
+          "worst_cost": 11747.15,
+          "worst_date": "2021-12-23",
+          "best_cost": -922.0,
+          "best_date": "2021-07-31"
+        },
+        "72h": {
+          "pct_earning": 0.3,
+          "avg_cost": 8101.27,
+          "worst_cost": 32609.19,
+          "worst_date": "2021-12-21",
+          "best_cost": -131.3,
+          "best_date": "2021-07-29"
+        },
+        "7d": {
+          "pct_earning": 0.0,
+          "avg_cost": 18920.04,
+          "worst_cost": 71764.95,
+          "worst_date": "2021-12-17",
+          "best_cost": 2914.87,
+          "best_date": "2021-07-27"
+        },
+        "14d": {
+          "pct_earning": 0.0,
+          "avg_cost": 37481.74,
+          "worst_cost": 128524.58,
+          "worst_date": "2021-12-10",
+          "best_cost": 11961.64,
+          "best_date": "2021-04-13"
+        }
+      }
+    }
+  },
+  "2022": {
+    "flat": {
+      "total_cost": 2057719.33,
+      "avg_daily": 5637.59,
+      "avg_price": 234.9,
+      "total_mwh": 8760.0,
+      "max_cost_eur": 2058346.55,
+      "max_cost_hours": 8753.8,
+      "max_cost_start": "2022-01-01",
+      "max_cost_end": "2022-12-31",
+      "longest_pos_hours": 8759.8,
+      "longest_pos_days": 365.0,
+      "longest_pos_cost": 2057732.3,
+      "periods": {
+        "24h": {
+          "pct_earning": 1.4,
+          "avg_cost": 5637.59,
+          "worst_cost": 20365.66,
+          "worst_date": "2022-08-26",
+          "best_cost": -892.75,
+          "best_date": "2022-07-16"
+        },
+        "72h": {
+          "pct_earning": 0.0,
+          "avg_cost": 16995.68,
+          "worst_cost": 53303.63,
+          "worst_date": "2022-08-24",
+          "best_cost": 1991.72,
+          "best_date": "2022-05-26"
+        },
+        "7d": {
+          "pct_earning": 0.0,
+          "avg_cost": 39961.51,
+          "worst_cost": 111700.22,
+          "worst_date": "2022-08-22",
+          "best_cost": 7277.98,
+          "best_date": "2022-12-25"
+        },
+        "14d": {
+          "pct_earning": 0.0,
+          "avg_cost": 80645.07,
+          "worst_cost": 197107.13,
+          "worst_date": "2022-08-15",
+          "best_cost": 31346.42,
+          "best_date": "2022-10-24"
+        }
+      }
+    },
+    "residential": {
+      "total_cost": 2253601.29,
+      "avg_daily": 6174.25,
+      "avg_price": 245.04,
+      "total_mwh": 9197.0,
+      "max_cost_eur": 2254833.79,
+      "max_cost_hours": 8753.8,
+      "max_cost_start": "2022-01-01",
+      "max_cost_end": "2022-12-31",
+      "longest_pos_hours": 8759.8,
+      "longest_pos_days": 365.0,
+      "longest_pos_cost": 2253608.9,
+      "periods": {
+        "24h": {
+          "pct_earning": 1.6,
+          "avg_cost": 6174.25,
+          "worst_cost": 18077.41,
+          "worst_date": "2022-08-26",
+          "best_cost": -679.25,
+          "best_date": "2022-06-06"
+        },
+        "72h": {
+          "pct_earning": 0.0,
+          "avg_cost": 18613.02,
+          "worst_cost": 48822.03,
+          "worst_date": "2022-08-24",
+          "best_cost": 2242.55,
+          "best_date": "2022-05-26"
+        },
+        "7d": {
+          "pct_earning": 0.0,
+          "avg_cost": 43712.93,
+          "worst_cost": 103249.7,
+          "worst_date": "2022-08-22",
+          "best_cost": 10306.52,
+          "best_date": "2022-12-25"
+        },
+        "14d": {
+          "pct_earning": 0.0,
+          "avg_cost": 87956.27,
+          "worst_cost": 186740.24,
+          "worst_date": "2022-12-05",
+          "best_cost": 38222.24,
+          "best_date": "2022-10-24"
+        }
+      }
+    }
+  },
+  "2023": {
+    "flat": {
+      "total_cost": 820118.84,
+      "avg_daily": 2246.9,
+      "avg_price": 93.62,
+      "total_mwh": 8760.0,
+      "max_cost_eur": 822677.92,
+      "max_cost_hours": 8722.5,
+      "max_cost_start": "2023-01-02",
+      "max_cost_end": "2023-12-31",
+      "longest_pos_hours": 8728.5,
+      "longest_pos_days": 363.7,
+      "longest_pos_cost": 822398.53,
+      "periods": {
+        "24h": {
+          "pct_earning": 3.8,
+          "avg_cost": 2246.9,
+          "worst_cost": 7596.81,
+          "worst_date": "2023-09-21",
+          "best_cost": -1983.82,
+          "best_date": "2023-05-18"
+        },
+        "72h": {
+          "pct_earning": 0.6,
+          "avg_cost": 6781.06,
+          "worst_cost": 16769.63,
+          "worst_date": "2023-01-23",
+          "best_cost": -1609.85,
+          "best_date": "2023-05-18"
+        },
+        "7d": {
+          "pct_earning": 0.0,
+          "avg_cost": 15905.94,
+          "worst_cost": 37786.69,
+          "worst_date": "2023-01-19",
+          "best_cost": 2379.44,
+          "best_date": "2023-12-22"
+        },
+        "14d": {
+          "pct_earning": 0.0,
+          "avg_cost": 32102.34,
+          "worst_cost": 60156.62,
+          "worst_date": "2023-01-17",
+          "best_cost": 9884.6,
+          "best_date": "2023-12-18"
+        }
+      }
+    },
+    "residential": {
+      "total_cost": 949856.8,
+      "avg_daily": 2602.35,
+      "avg_price": 103.28,
+      "total_mwh": 9197.0,
+      "max_cost_eur": 952709.45,
+      "max_cost_hours": 8722.5,
+      "max_cost_start": "2023-01-02",
+      "max_cost_end": "2023-12-31",
+      "longest_pos_hours": 8728.5,
+      "longest_pos_days": 363.7,
+      "longest_pos_cost": 952069.11,
+      "periods": {
+        "24h": {
+          "pct_earning": 3.0,
+          "avg_cost": 2602.35,
+          "worst_cost": 9904.65,
+          "worst_date": "2023-01-20",
+          "best_cost": -1618.31,
+          "best_date": "2023-05-18"
+        },
+        "72h": {
+          "pct_earning": 0.6,
+          "avg_cost": 7852.5,
+          "worst_cost": 23030.76,
+          "worst_date": "2023-01-23",
+          "best_cost": -1662.07,
+          "best_date": "2023-05-18"
+        },
+        "7d": {
+          "pct_earning": 0.0,
+          "avg_cost": 18372.93,
+          "worst_cost": 51439.83,
+          "worst_date": "2023-01-19",
+          "best_cost": 4014.41,
+          "best_date": "2023-12-22"
+        },
+        "14d": {
+          "pct_earning": 0.0,
+          "avg_cost": 36908.89,
+          "worst_cost": 81179.68,
+          "worst_date": "2023-01-17",
+          "best_cost": 15680.3,
+          "best_date": "2023-12-18"
+        }
+      }
+    }
+  },
+  "2024": {
+    "flat": {
+      "total_cost": 581315.81,
+      "avg_daily": 1588.29,
+      "avg_price": 66.18,
+      "total_mwh": 8784.0,
+      "max_cost_eur": 582031.43,
+      "max_cost_hours": 8751.0,
+      "max_cost_start": "2024-01-02",
+      "max_cost_end": "2024-12-31",
+      "longest_pos_hours": 8751.2,
+      "longest_pos_days": 364.6,
+      "longest_pos_cost": 582027.24,
+      "periods": {
+        "24h": {
+          "pct_earning": 10.1,
+          "avg_cost": 1588.29,
+          "worst_cost": 12643.98,
+          "worst_date": "2024-12-11",
+          "best_cost": -3222.58,
+          "best_date": "2024-04-07"
+        },
+        "72h": {
+          "pct_earning": 3.8,
+          "avg_cost": 4774.17,
+          "worst_cost": 20488.91,
+          "worst_date": "2024-12-11",
+          "best_cost": -2781.93,
+          "best_date": "2024-07-02"
+        },
+        "7d": {
+          "pct_earning": 0.8,
+          "avg_cost": 11118.08,
+          "worst_cost": 30142.38,
+          "worst_date": "2024-11-05",
+          "best_cost": -2421.4,
+          "best_date": "2024-07-02"
+        },
+        "14d": {
+          "pct_earning": 0.0,
+          "avg_cost": 22099.45,
+          "worst_cost": 48762.1,
+          "worst_date": "2024-11-04",
+          "best_cost": 6610.05,
+          "best_date": "2024-07-01"
+        }
+      }
+    },
+    "residential": {
+      "total_cost": 690962.49,
+      "avg_daily": 1887.88,
+      "avg_price": 74.88,
+      "total_mwh": 9227.0,
+      "max_cost_eur": 691432.39,
+      "max_cost_hours": 8758.8,
+      "max_cost_start": "2024-01-01",
+      "max_cost_end": "2024-12-31",
+      "longest_pos_hours": 8764.0,
+      "longest_pos_days": 365.2,
+      "longest_pos_cost": 691358.59,
+      "periods": {
+        "24h": {
+          "pct_earning": 10.4,
+          "avg_cost": 1887.88,
+          "worst_cost": 19157.76,
+          "worst_date": "2024-12-11",
+          "best_cost": -3027.59,
+          "best_date": "2024-06-23"
+        },
+        "72h": {
+          "pct_earning": 4.1,
+          "avg_cost": 5665.63,
+          "worst_cost": 30154.61,
+          "worst_date": "2024-12-11",
+          "best_cost": -2737.57,
+          "best_date": "2024-07-02"
+        },
+        "7d": {
+          "pct_earning": 1.1,
+          "avg_cost": 13158.68,
+          "worst_cost": 41353.55,
+          "worst_date": "2024-12-08",
+          "best_cost": -2144.63,
+          "best_date": "2024-07-02"
+        },
+        "14d": {
+          "pct_earning": 0.0,
+          "avg_cost": 26046.8,
+          "worst_cost": 62764.48,
+          "worst_date": "2024-11-04",
+          "best_cost": 4309.81,
+          "best_date": "2024-06-04"
+        }
+      }
+    }
+  },
+  "2025": {
+    "flat": {
+      "total_cost": 632635.75,
+      "avg_daily": 1733.25,
+      "avg_price": 72.22,
+      "total_mwh": 8760.0,
+      "max_cost_eur": 633141.14,
+      "max_cost_hours": 8746.2,
+      "max_cost_start": "2025-01-01",
+      "max_cost_end": "2025-12-31",
+      "longest_pos_hours": 8748.5,
+      "longest_pos_days": 364.5,
+      "longest_pos_cost": 633105.23,
+      "periods": {
+        "24h": {
+          "pct_earning": 3.6,
+          "avg_cost": 1733.25,
+          "worst_cost": 6502.11,
+          "worst_date": "2025-05-07",
+          "best_cost": -1690.55,
+          "best_date": "2025-04-06"
+        },
+        "72h": {
+          "pct_earning": 0.3,
+          "avg_cost": 5199.9,
+          "worst_cost": 14756.55,
+          "worst_date": "2025-02-11",
+          "best_cost": -808.97,
+          "best_date": "2025-04-05"
+        },
+        "7d": {
+          "pct_earning": 0.0,
+          "avg_cost": 12099.58,
+          "worst_cost": 25933.99,
+          "worst_date": "2025-02-11",
+          "best_cost": 2935.25,
+          "best_date": "2025-04-01"
+        },
+        "14d": {
+          "pct_earning": 0.0,
+          "avg_cost": 24079.42,
+          "worst_cost": 46722.3,
+          "worst_date": "2025-02-02",
+          "best_cost": 11168.99,
+          "best_date": "2025-07-28"
+        }
+      }
+    },
+    "residential": {
+      "total_cost": 741704.46,
+      "avg_daily": 2032.07,
+      "avg_price": 80.65,
+      "total_mwh": 9197.0,
+      "max_cost_eur": 742340.97,
+      "max_cost_hours": 8746.2,
+      "max_cost_start": "2025-01-01",
+      "max_cost_end": "2025-12-31",
+      "longest_pos_hours": 8748.5,
+      "longest_pos_days": 364.5,
+      "longest_pos_cost": 742298.15,
+      "periods": {
+        "24h": {
+          "pct_earning": 3.3,
+          "avg_cost": 2032.07,
+          "worst_cost": 8520.55,
+          "worst_date": "2025-09-25",
+          "best_cost": -1732.65,
+          "best_date": "2025-04-06"
+        },
+        "72h": {
+          "pct_earning": 0.3,
+          "avg_cost": 6088.64,
+          "worst_cost": 20325.8,
+          "worst_date": "2025-02-11",
+          "best_cost": -1251.04,
+          "best_date": "2025-04-05"
+        },
+        "7d": {
+          "pct_earning": 0.0,
+          "avg_cost": 14130.61,
+          "worst_cost": 34981.04,
+          "worst_date": "2025-01-15",
+          "best_cost": 3322.34,
+          "best_date": "2025-04-01"
+        },
+        "14d": {
+          "pct_earning": 0.0,
+          "avg_cost": 27960.05,
+          "worst_cost": 62187.81,
+          "worst_date": "2025-01-09",
+          "best_cost": 10142.08,
+          "best_date": "2025-07-28"
+        }
+      }
+    }
+  }
+}

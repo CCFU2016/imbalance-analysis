@@ -1,0 +1,207 @@
+{
+  "2021": {
+    "longest_negative": {
+      "label": "Longest continuous negative return (injection)",
+      "start": "2021-05-03 09:15",
+      "end": "2021-05-06 05:15",
+      "days": 2.8,
+      "hours": 68.0,
+      "imb_avg": -0.23,
+      "imb_total": -15.0,
+      "da_avg": 45.58,
+      "da_total": 3100.0,
+      "diff": -45.81,
+      "diff_pct": -100.5
+    },
+    "max_loss": {
+      "label": "Maximum single-period loss (injection)",
+      "start": "2021-07-31 01:30",
+      "end": "2021-07-31 18:15",
+      "days": 0.7,
+      "hours": 16.8,
+      "imb_avg": -99.57,
+      "imb_total": -1668.0,
+      "da_avg": 35.95,
+      "da_total": 602.0,
+      "diff": -135.51,
+      "diff_pct": -377.0
+    },
+    "worst_24h_cost": {
+      "label": "Worst 24h consumption cost",
+      "start": "2021-12-22 20:30",
+      "end": "2021-12-23 20:30",
+      "days": 1.0,
+      "hours": 24.0,
+      "imb_avg": 396.76,
+      "imb_total": 9522.0,
+      "da_avg": 350.44,
+      "da_total": 8410.0,
+      "diff": 46.32,
+      "diff_pct": 13.2
+    }
+  },
+  "2022": {
+    "longest_negative": {
+      "label": "Longest continuous negative return (injection)",
+      "start": "2022-05-26 09:30",
+      "end": "2022-05-28 13:30",
+      "days": 2.2,
+      "hours": 52.0,
+      "imb_avg": -1.0,
+      "imb_total": -52.0,
+      "da_avg": 76.11,
+      "da_total": 3958.0,
+      "diff": -77.11,
+      "diff_pct": -101.3
+    },
+    "max_loss": {
+      "label": "Maximum single-period loss (injection)",
+      "start": "2022-06-06 03:00",
+      "end": "2022-06-06 14:30",
+      "days": 0.5,
+      "hours": 11.5,
+      "imb_avg": -242.22,
+      "imb_total": -2786.0,
+      "da_avg": 34.15,
+      "da_total": 393.0,
+      "diff": -276.37,
+      "diff_pct": -809.3
+    },
+    "worst_24h_cost": {
+      "label": "Worst 24h consumption cost",
+      "start": "2022-08-26 02:00",
+      "end": "2022-08-27 02:00",
+      "days": 1.0,
+      "hours": 24.0,
+      "imb_avg": 868.6,
+      "imb_total": 20846.0,
+      "da_avg": 702.43,
+      "da_total": 16858.0,
+      "diff": 166.17,
+      "diff_pct": 23.7
+    }
+  },
+  "2023": {
+    "longest_negative": {
+      "label": "Longest continuous negative return (injection)",
+      "start": "2023-05-18 11:15",
+      "end": "2023-05-22 05:00",
+      "days": 3.7,
+      "hours": 89.8,
+      "imb_avg": -0.34,
+      "imb_total": -30.0,
+      "da_avg": 58.18,
+      "da_total": 5222.0,
+      "diff": -58.52,
+      "diff_pct": -100.6
+    },
+    "max_loss": {
+      "label": "Maximum single-period loss (injection)",
+      "start": "2023-05-18 11:15",
+      "end": "2023-05-18 18:00",
+      "days": 0.3,
+      "hours": 6.8,
+      "imb_avg": -482.23,
+      "imb_total": -3255.0,
+      "da_avg": 62.51,
+      "da_total": 422.0,
+      "diff": -544.74,
+      "diff_pct": -871.5
+    },
+    "worst_24h_cost": {
+      "label": "Worst 24h consumption cost",
+      "start": "2023-09-20 16:30",
+      "end": "2023-09-21 16:30",
+      "days": 1.0,
+      "hours": 24.0,
+      "imb_avg": 334.24,
+      "imb_total": 8022.0,
+      "da_avg": 92.6,
+      "da_total": 2222.0,
+      "diff": 241.64,
+      "diff_pct": 260.9
+    }
+  },
+  "2024": {
+    "longest_negative": {
+      "label": "Longest continuous negative return (injection)",
+      "start": "2024-07-02 10:00",
+      "end": "2024-07-10 07:15",
+      "days": 7.9,
+      "hours": 189.2,
+      "imb_avg": -0.1,
+      "imb_total": -19.0,
+      "da_avg": 48.39,
+      "da_total": 9158.0,
+      "diff": -48.49,
+      "diff_pct": -100.2
+    },
+    "max_loss": {
+      "label": "Maximum single-period loss (injection)",
+      "start": "2024-04-06 12:30",
+      "end": "2024-04-07 17:15",
+      "days": 1.2,
+      "hours": 28.8,
+      "imb_avg": -183.6,
+      "imb_total": -5279.0,
+      "da_avg": -2.84,
+      "da_total": -82.0,
+      "diff": -180.76,
+      "diff_pct": 6353.9
+    },
+    "worst_24h_cost": {
+      "label": "Worst 24h consumption cost",
+      "start": "2024-12-11 09:15",
+      "end": "2024-12-12 09:15",
+      "days": 1.0,
+      "hours": 24.0,
+      "imb_avg": 548.34,
+      "imb_total": 13160.0,
+      "da_avg": 252.7,
+      "da_total": 6065.0,
+      "diff": 295.64,
+      "diff_pct": 117.0
+    }
+  },
+  "2025": {
+    "longest_negative": {
+      "label": "Longest continuous negative return (injection)",
+      "start": "2025-10-23 16:00",
+      "end": "2025-10-27 10:00",
+      "days": 3.8,
+      "hours": 91.0,
+      "imb_avg": -0.06,
+      "imb_total": -6.0,
+      "da_avg": 30.05,
+      "da_total": 2735.0,
+      "diff": -30.12,
+      "diff_pct": -100.2
+    },
+    "max_loss": {
+      "label": "Maximum single-period loss (injection)",
+      "start": "2025-07-20 08:00",
+      "end": "2025-07-20 16:30",
+      "days": 0.4,
+      "hours": 8.5,
+      "imb_avg": -356.88,
+      "imb_total": -3033.0,
+      "da_avg": 24.42,
+      "da_total": 208.0,
+      "diff": -381.3,
+      "diff_pct": -1561.5
+    },
+    "worst_24h_cost": {
+      "label": "Worst 24h consumption cost",
+      "start": "2025-03-25 16:15",
+      "end": "2025-03-26 16:15",
+      "days": 1.0,
+      "hours": 24.0,
+      "imb_avg": 280.97,
+      "imb_total": 6743.0,
+      "da_avg": 111.98,
+      "da_total": 2688.0,
+      "diff": 168.99,
+      "diff_pct": 150.9
+    }
+  }
+}

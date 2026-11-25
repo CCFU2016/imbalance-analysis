@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Imbalance Price Analysis — 1 MW Solar</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #ffffff;
+    color: #3c3c3c;
+    padding: 40px;
+    min-width: 1100px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ff6600;
+    margin-bottom: 8px;
+  }
+
+  .header p {
+    font-size: 15px;
+    color: #6b7280;
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3c3c3c;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff6600;
+  }
+
+  /* Assumptions */
+  .assumptions {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .assumptions h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ff6600;
+    margin-bottom: 12px;
+  }
+
+  .assumptions ul {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 32px;
+  }
+
+  .assumptions li {
+    font-size: 13px;
+    color: #6b7280;
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+    break-inside: avoid;
+  }
+
+  .assumptions li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff6600;
+  }
+
+  /* Compare cards */
+  .compare-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .compare-card {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .compare-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #ff6600;
+  }
+
+  .kpi-year {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+
+  .compare-vs {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .compare-solar {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ff6600;
+  }
+
+  .compare-base {
+    font-size: 13px;
+    color: #9ca3af;
+  }
+
+  .compare-label {
+    font-size: 11px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .compare-pct {
+    font-size: 12px;
+    font-weight: 600;
+    color: #dc2626;
+    margin-top: 4px;
+  }
+
+  /* Bar chart */
+  .bar-section { margin-bottom: 40px; }
+
+  .bar-chart {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 28px;
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 50px 1fr 100px;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 16px;
+  }
+
+  .bar-row:last-child { margin-bottom: 0; }
+
+  .bar-year {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+  }
+
+  .bar-track {
+    height: 32px;
+    background: #f3f4f6;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .bar-amount {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    color: #3c3c3c;
+  }
+
+  /* Probability table */
+  .prob-section { margin-bottom: 40px; }
+
+  .prob-table-wrap {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 28px;
+    overflow-x: auto;
+  }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead th {
+    font-size: 12px;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  thead th:first-child { text-align: left; }
+
+  tbody td {
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  tbody td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: #6b7280;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  .prob-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    min-width: 60px;
+  }
+
+  .prob-zero { background: rgba(34, 197, 94, 0.1); color: #16a34a; }
+  .prob-low { background: rgba(234, 179, 8, 0.12); color: #a16207; }
+  .prob-med { background: rgba(255, 102, 0, 0.12); color: #cc5200; }
+  .prob-high { background: rgba(220, 38, 38, 0.1); color: #dc2626; }
+
+  /* Risk section */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .risk-card {
+    background: #fafafa;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .risk-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 16px;
+  }
+
+  .risk-table { width: 100%; }
+
+  .risk-table td {
+    padding: 8px 0;
+    font-size: 13px;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .risk-table tr:last-child td { border-bottom: none; }
+  .risk-table td:first-child { font-weight: 600; color: #6b7280; width: 50px; }
+  .risk-table td:nth-child(2) { color: #dc2626; font-weight: 600; }
+  .risk-table td:nth-child(3) { color: #9ca3af; font-size: 12px; text-align: right; }
+
+  /* Takeaway */
+  .takeaway {
+    background: rgba(255, 102, 0, 0.05);
+    border: 1px solid rgba(255, 102, 0, 0.2);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+
+  .takeaway h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff6600;
+    margin-bottom: 12px;
+  }
+
+  .takeaway ul { list-style: none; padding: 0; }
+
+  .takeaway li {
+    font-size: 14px;
+    color: #4b5563;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .takeaway li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff6600;
+  }
+
+  .footer {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 12px;
+    margin-top: 16px;
+  }
+
+  /* Export button */
+  .export-btn {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .export-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(255, 102, 0, 0.4);
+  }
+
+  .export-btn:active { transform: translateY(0); }
+  .export-btn.exporting { opacity: 0.7; pointer-events: none; }
+
+  @media print { .export-btn { display: none; } }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>Solar Asset Scenario</h1>
+    <p>1 MW solar asset producing during daylight hours on the Dutch imbalance market | 2021–2025</p>
+  </div>
+
+  <div class="assumptions">
+    <h3>Assumptions</h3>
+    <ul>
+      <li>Location: Netherlands (52.1°N, 5.3°E)</li>
+      <li>Constant output of 1 MW whenever the sun is up</li>
+      <li>Sunrise/sunset calculated using NOAA solar algorithm per day</li>
+      <li>An interval counts as "daylight" if its midpoint falls between sunrise and sunset</li>
+      <li>No cloud cover, inverter losses, or curtailment modelled — this is a theoretical maximum</li>
+      <li>Daylight ranges from ~7.8h (Dec) to ~16.7h (Jun), averaging ~51% of all intervals</li>
+    </ul>
+  </div>
+
+  <!-- Solar annual returns vs baseload -->
+  <div class="section-title"><span class="dot"></span> Annual Return: Solar vs 24/7 Baseload</div>
+  <div class="compare-row">
+    <div class="compare-card">
+      <div class="kpi-year">2021</div>
+      <div class="compare-vs">
+        <span class="compare-solar">428k</span>
+        <span class="compare-base">vs 843k</span>
+      </div>
+      <div class="compare-label">EUR / year</div>
+      <div class="compare-pct">-49% vs baseload</div>
+      <div style="margin-top:10px"><span class="compare-solar" style="font-size:16px">1,172</span> <span class="compare-base">EUR/day</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="kpi-year">2022</div>
+      <div class="compare-vs">
+        <span class="compare-solar">1,088k</span>
+        <span class="compare-base">vs 2,058k</span>
+      </div>
+      <div class="compare-label">EUR / year</div>
+      <div class="compare-pct">-47% vs baseload</div>
+      <div style="margin-top:10px"><span class="compare-solar" style="font-size:16px">2,980</span> <span class="compare-base">EUR/day</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="kpi-year">2023</div>
+      <div class="compare-vs">
+        <span class="compare-solar">403k</span>
+        <span class="compare-base">vs 820k</span>
+      </div>
+      <div class="compare-label">EUR / year</div>
+      <div class="compare-pct">-51% vs baseload</div>
+      <div style="margin-top:10px"><span class="compare-solar" style="font-size:16px">1,105</span> <span class="compare-base">EUR/day</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="kpi-year">2024</div>
+      <div class="compare-vs">
+        <span class="compare-solar">253k</span>
+        <span class="compare-base">vs 581k</span>
+      </div>
+      <div class="compare-label">EUR / year</div>
+      <div class="compare-pct">-57% vs baseload</div>
+      <div style="margin-top:10px"><span class="compare-solar" style="font-size:16px">690</span> <span class="compare-base">EUR/day</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="kpi-year">2025</div>
+      <div class="compare-vs">
+        <span class="compare-solar">266k</span>
+        <span class="compare-base">vs 633k</span>
+      </div>
+      <div class="compare-label">EUR / year</div>
+      <div class="compare-pct">-58% vs baseload</div>
+      <div style="margin-top:10px"><span class="compare-solar" style="font-size:16px">729</span> <span class="compare-base">EUR/day</span></div>
+    </div>
+  </div>
+
+  <!-- Solar max loss -->
+  <div class="section-title"><span class="dot"></span> Maximum Single-Period Loss (Solar)</div>
+  <div class="bar-section">
+    <div class="bar-chart">
+      <div class="bar-row">
+        <span class="bar-year">2021</span>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:27.4%;background:linear-gradient(90deg,#ff6600,#cc5200);">8h</div>
+        </div>
+        <span class="bar-amount">-1,561</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-year">2022</span>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:47.1%;background:linear-gradient(90deg,#ff6600,#cc5200);">14h</div>
+        </div>
+        <span class="bar-amount">-2,681</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-year">2023</span>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:63.0%;background:linear-gradient(90deg,#ff6600,#cc5200);">39h</div>
+        </div>
+        <span class="bar-amount">-3,591</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-year">2024</span>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:100%;background:linear-gradient(90deg,#ff6600,#993d00);">30h</div>
+        </div>
+        <span class="bar-amount">-5,699</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-year">2025</span>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:53.2%;background:linear-gradient(90deg,#ff6600,#cc5200);">8h</div>
+        </div>
+        <span class="bar-amount">-3,033</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solar probability table -->
+  <div class="section-title"><span class="dot"></span> Probability of Negative Return — Solar Asset</div>
+  <div class="prob-section">
+    <div class="prob-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Window</th>
+            <th>2021</th>
+            <th>2022</th>
+            <th>2023</th>
+            <th>2024</th>
+            <th>2025</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>24 hours</td>
+            <td><span class="prob-pill prob-low">5.8%</span></td>
+            <td><span class="prob-pill prob-low">2.7%</span></td>
+            <td><span class="prob-pill prob-med">8.5%</span></td>
+            <td><span class="prob-pill prob-high">18.9%</span></td>
+            <td><span class="prob-pill prob-high">12.9%</span></td>
+          </tr>
+          <tr>
+            <td>72 hours</td>
+            <td><span class="prob-pill prob-low">1.9%</span></td>
+            <td><span class="prob-pill prob-zero">0.0%</span></td>
+            <td><span class="prob-pill prob-med">4.1%</span></td>
+            <td><span class="prob-pill prob-high">14.0%</span></td>
+            <td><span class="prob-pill prob-med">6.1%</span></td>
+          </tr>
+          <tr>
+            <td>7 days</td>
+            <td><span class="prob-pill prob-zero">0.0%</span></td>
+            <td><span class="prob-pill prob-zero">0.0%</span></td>
+            <td><span class="prob-pill prob-zero">0.0%</span></td>
+            <td><span class="prob-pill prob-med">6.1%</span></td>
+            <td><span class="prob-pill prob-zero">0.8%</span></td>
+          </tr>
+          <tr>
+            <td>14 days</td>
+            <td><span class="prob-pill prob-zero">0.0%</span></td>
+            <td><span class="prob-pill prob-zero">0.0%</span></td>
+            <td><span class="prob-pill prob-zero">0.0%</span></td>
+            <td><span class="prob-pill prob-low">1.4%</span></td>
+            <td><span class="prob-pill prob-zero">0.0%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Solar risk detail -->
+  <div class="section-title"><span class="dot"></span> Downside Risk Detail (Solar)</div>
+  <div class="risk-grid">
+    <div class="risk-card">
+      <h3>Longest Continuous Negative Return Period</h3>
+      <table class="risk-table">
+        <tr><td>2021</td><td>2.2 days</td><td>loss: -94 EUR</td></tr>
+        <tr><td>2022</td><td>1.5 days</td><td>loss: -15 EUR</td></tr>
+        <tr><td>2023</td><td>3.0 days</td><td>loss: -154 EUR</td></tr>
+        <tr><td>2024</td><td>9.3 days</td><td>loss: -85 EUR</td></tr>
+        <tr><td>2025</td><td>4.2 days</td><td>loss: -20 EUR</td></tr>
+      </table>
+    </div>
+    <div class="risk-card">
+      <h3>Worst 24h Return — Solar (EUR)</h3>
+      <table class="risk-table">
+        <tr><td>2021</td><td>-1,325</td><td>Best: +3,682</td></tr>
+        <tr><td>2022</td><td>-2,118</td><td>Best: +13,149</td></tr>
+        <tr><td>2023</td><td>-2,581</td><td>Best: +6,938</td></tr>
+        <tr><td>2024</td><td>-3,801</td><td>Best: +8,391</td></tr>
+        <tr><td>2025</td><td>-2,342</td><td>Best: +5,702</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Solar takeaways -->
+  <div class="takeaway">
+    <h3>Key Takeaways — Solar vs Baseload</h3>
+    <ul>
+      <li>Solar revenue is <strong>47–58% lower</strong> than baseload — worse than the ~51% reduction in operating hours because daytime imbalance prices tend to be lower (more solar on the grid).</li>
+      <li>Negative return probabilities are <strong>significantly higher</strong> for solar: a 24h loss occurs up to <strong>18.9% of the time</strong> (2024) vs 10.1% for baseload.</li>
+      <li>The 14-day window is <strong>no longer risk-free</strong> — in 2024 there was a <strong>1.4% chance of a negative 14-day period</strong>, a scenario that never occurred with baseload.</li>
+      <li>Max single-period losses are similar in magnitude (<strong>-5,699 vs -5,279 EUR</strong> in 2024), but represent a <strong>larger share</strong> of the reduced annual revenue.</li>
+      <li><strong>2024 stands out as particularly challenging for solar</strong>: nearly 1 in 5 days had a negative return, and even 7-day windows were negative 6.1% of the time.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Solar analysis based on Dutch imbalance settlement prices (Price Surplus) | Daylight intervals only | 2021-01-01 to 2025-12-31
+  </div>
+
+</div>
+
+<button class="export-btn" onclick="exportImage()">Export as PNG</button>
+
+<script>
+function exportImage() {
+  const btn = document.querySelector('.export-btn');
+  btn.textContent = 'Exporting...';
+  btn.classList.add('exporting');
+
+  html2canvas(document.querySelector('.container'), {
+    backgroundColor: '#ffffff',
+    scale: 2,
+    useCORS: true,
+    logging: false,
+  }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'imbalance_solar_analysis.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    btn.textContent = 'Export as PNG';
+    btn.classList.remove('exporting');
+  }).catch(() => {
+    btn.textContent = 'Export as PNG';
+    btn.classList.remove('exporting');
+    alert('Export failed — try printing to PDF instead (Cmd+P).');
+  });
+}
+</script>
+</body>
+</html>

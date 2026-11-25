@@ -1,0 +1,252 @@
+{
+  "2021": {
+    "total_return": 427872.02,
+    "avg_daily": 1172.25,
+    "solar_intervals": 17931,
+    "total_intervals": 35040,
+    "pct_solar": 51.2,
+    "max_loss_eur": -1561.13,
+    "max_loss_hours": 8.0,
+    "max_loss_start": "2021-07-31",
+    "max_loss_end": "2021-07-31",
+    "longest_neg_hours": 53.8,
+    "longest_neg_days": 2.2,
+    "longest_neg_eur": -93.89,
+    "longest_neg_start": "2021-05-03",
+    "longest_neg_end": "2021-05-06",
+    "periods": {
+      "24h": {
+        "pct_negative": 5.8,
+        "avg_return": 1172.25,
+        "worst": -1325.25,
+        "worst_date": "2021-07-31",
+        "best": 3681.88,
+        "best_date": "2021-11-15"
+      },
+      "72h": {
+        "pct_negative": 1.9,
+        "avg_return": 3528.87,
+        "worst": -1146.84,
+        "worst_date": "2021-07-29",
+        "best": 8798.67,
+        "best_date": "2021-12-20"
+      },
+      "7d": {
+        "pct_negative": 0.0,
+        "avg_return": 8260.71,
+        "worst": 781.98,
+        "worst_date": "2021-07-27",
+        "best": 19427.83,
+        "best_date": "2021-12-17"
+      },
+      "14d": {
+        "pct_negative": 0.0,
+        "avg_return": 16533.33,
+        "worst": 4571.54,
+        "worst_date": "2021-02-17",
+        "best": 35478.47,
+        "best_date": "2021-12-09"
+      }
+    }
+  },
+  "2022": {
+    "total_return": 1087653.86,
+    "avg_daily": 2979.87,
+    "solar_intervals": 17931,
+    "total_intervals": 35040,
+    "pct_solar": 51.2,
+    "max_loss_eur": -2681.32,
+    "max_loss_hours": 13.8,
+    "max_loss_start": "2022-07-16",
+    "max_loss_end": "2022-07-16",
+    "longest_neg_hours": 37.0,
+    "longest_neg_days": 1.5,
+    "longest_neg_eur": -14.54,
+    "longest_neg_start": "2022-05-26",
+    "longest_neg_end": "2022-05-28",
+    "periods": {
+      "24h": {
+        "pct_negative": 2.7,
+        "avg_return": 2979.87,
+        "worst": -2117.9,
+        "worst_date": "2022-07-16",
+        "best": 13149.05,
+        "best_date": "2022-08-26"
+      },
+      "72h": {
+        "pct_negative": 0.0,
+        "avg_return": 8983.86,
+        "worst": 302.89,
+        "worst_date": "2022-02-12",
+        "best": 34548.38,
+        "best_date": "2022-08-24"
+      },
+      "7d": {
+        "pct_negative": 0.0,
+        "avg_return": 21129.86,
+        "worst": 3514.3,
+        "worst_date": "2022-02-08",
+        "best": 69054.66,
+        "best_date": "2022-08-22"
+      },
+      "14d": {
+        "pct_negative": 0.0,
+        "avg_return": 42753.67,
+        "worst": 11186.44,
+        "worst_date": "2022-02-02",
+        "best": 122013.14,
+        "best_date": "2022-08-14"
+      }
+    }
+  },
+  "2023": {
+    "total_return": 403173.12,
+    "avg_daily": 1104.58,
+    "solar_intervals": 17931,
+    "total_intervals": 35040,
+    "pct_solar": 51.2,
+    "max_loss_eur": -3591.08,
+    "max_loss_hours": 39.2,
+    "max_loss_start": "2023-05-18",
+    "max_loss_end": "2023-05-20",
+    "longest_neg_hours": 72.2,
+    "longest_neg_days": 3.0,
+    "longest_neg_eur": -154.18,
+    "longest_neg_start": "2023-05-18",
+    "longest_neg_end": "2023-05-22",
+    "periods": {
+      "24h": {
+        "pct_negative": 8.5,
+        "avg_return": 1104.58,
+        "worst": -2581.24,
+        "worst_date": "2023-05-18",
+        "best": 6937.91,
+        "best_date": "2023-09-21"
+      },
+      "72h": {
+        "pct_negative": 4.1,
+        "avg_return": 3330.76,
+        "worst": -2967.68,
+        "worst_date": "2023-05-18",
+        "best": 10977.25,
+        "best_date": "2023-08-24"
+      },
+      "7d": {
+        "pct_negative": 0.0,
+        "avg_return": 7815.31,
+        "worst": 1192.98,
+        "worst_date": "2023-10-01",
+        "best": 18458.2,
+        "best_date": "2023-01-19"
+      },
+      "14d": {
+        "pct_negative": 0.0,
+        "avg_return": 15767.49,
+        "worst": 4277.78,
+        "worst_date": "2023-12-18",
+        "best": 28400.02,
+        "best_date": "2023-06-16"
+      }
+    }
+  },
+  "2024": {
+    "total_return": 252707.52,
+    "avg_daily": 690.46,
+    "solar_intervals": 17962,
+    "total_intervals": 35136,
+    "pct_solar": 51.1,
+    "max_loss_eur": -5698.86,
+    "max_loss_hours": 29.5,
+    "max_loss_start": "2024-04-05",
+    "max_loss_end": "2024-04-07",
+    "longest_neg_hours": 222.2,
+    "longest_neg_days": 9.3,
+    "longest_neg_eur": -84.84,
+    "longest_neg_start": "2024-07-02",
+    "longest_neg_end": "2024-07-15",
+    "periods": {
+      "24h": {
+        "pct_negative": 18.9,
+        "avg_return": 690.46,
+        "worst": -3801.02,
+        "worst_date": "2024-04-07",
+        "best": 8390.54,
+        "best_date": "2024-11-08"
+      },
+      "72h": {
+        "pct_negative": 14.0,
+        "avg_return": 2074.5,
+        "worst": -3637.0,
+        "worst_date": "2024-03-02",
+        "best": 12909.82,
+        "best_date": "2024-11-06"
+      },
+      "7d": {
+        "pct_negative": 6.1,
+        "avg_return": 4843.8,
+        "worst": -4368.23,
+        "worst_date": "2024-07-02",
+        "best": 17531.61,
+        "best_date": "2024-11-05"
+      },
+      "14d": {
+        "pct_negative": 1.4,
+        "avg_return": 9699.85,
+        "worst": -644.32,
+        "worst_date": "2024-03-31",
+        "best": 25169.58,
+        "best_date": "2024-10-29"
+      }
+    }
+  },
+  "2025": {
+    "total_return": 265938.84,
+    "avg_daily": 728.6,
+    "solar_intervals": 17931,
+    "total_intervals": 35040,
+    "pct_solar": 51.2,
+    "max_loss_eur": -3033.45,
+    "max_loss_hours": 8.5,
+    "max_loss_start": "2025-07-20",
+    "max_loss_end": "2025-07-20",
+    "longest_neg_hours": 101.5,
+    "longest_neg_days": 4.2,
+    "longest_neg_eur": -20.02,
+    "longest_neg_start": "2025-08-01",
+    "longest_neg_end": "2025-08-07",
+    "periods": {
+      "24h": {
+        "pct_negative": 12.9,
+        "avg_return": 728.6,
+        "worst": -2341.95,
+        "worst_date": "2025-07-20",
+        "best": 5702.13,
+        "best_date": "2025-05-07"
+      },
+      "72h": {
+        "pct_negative": 6.1,
+        "avg_return": 2189.58,
+        "worst": -2026.11,
+        "worst_date": "2025-04-05",
+        "best": 7592.24,
+        "best_date": "2025-05-06"
+      },
+      "7d": {
+        "pct_negative": 0.8,
+        "avg_return": 5116.95,
+        "worst": -664.59,
+        "worst_date": "2025-04-01",
+        "best": 12731.39,
+        "best_date": "2025-02-08"
+      },
+      "14d": {
+        "pct_negative": 0.0,
+        "avg_return": 10246.13,
+        "worst": 2521.97,
+        "worst_date": "2025-07-28",
+        "best": 21610.97,
+        "best_date": "2025-02-02"
+      }
+    }
+  }
+}

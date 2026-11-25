@@ -1,0 +1,133 @@
+{
+  "source": "Fraunhofer ISE \u2014 energy-charts.info",
+  "source_url": "https://api.energy-charts.info/price",
+  "source_attribution": "CC BY 4.0 \u2014 Bundesnetzagentur | SMARD.de (originally ENTSO-E)",
+  "tolerance_eur_per_mwh": 1.0,
+  "total": 10,
+  "passed": 10,
+  "failed": 0,
+  "pass_rate": 100.0,
+  "timestamp": "2026-04-15 16:23:38",
+  "tests": [
+    {
+      "name": "NL 2021 day-ahead annual avg vs Fraunhofer/SMARD",
+      "country": "NL",
+      "year": "2021",
+      "infographic": 102.96,
+      "reference": 102.9628,
+      "diff": 0.0028,
+      "tolerance": 1.0,
+      "unit": "EUR/MWh",
+      "reference_n_hours": 8760,
+      "passed": true
+    },
+    {
+      "name": "NL 2022 day-ahead annual avg vs Fraunhofer/SMARD",
+      "country": "NL",
+      "year": "2022",
+      "infographic": 241.91,
+      "reference": 241.9244,
+      "diff": 0.0144,
+      "tolerance": 1.0,
+      "unit": "EUR/MWh",
+      "reference_n_hours": 8760,
+      "passed": true
+    },
+    {
+      "name": "NL 2023 day-ahead annual avg vs Fraunhofer/SMARD",
+      "country": "NL",
+      "year": "2023",
+      "infographic": 95.81,
+      "reference": 95.8173,
+      "diff": 0.0073,
+      "tolerance": 1.0,
+      "unit": "EUR/MWh",
+      "reference_n_hours": 8760,
+      "passed": true
+    },
+    {
+      "name": "NL 2024 day-ahead annual avg vs Fraunhofer/SMARD",
+      "country": "NL",
+      "year": "2024",
+      "infographic": 77.29,
+      "reference": 77.2877,
+      "diff": 0.0023,
+      "tolerance": 1.0,
+      "unit": "EUR/MWh",
+      "reference_n_hours": 8784,
+      "passed": true
+    },
+    {
+      "name": "NL 2025 day-ahead annual avg vs Fraunhofer/SMARD",
+      "country": "NL",
+      "year": "2025",
+      "infographic": 87.13,
+      "reference": 87.2628,
+      "diff": 0.1328,
+      "tolerance": 1.0,
+      "unit": "EUR/MWh",
+      "reference_n_hours": 15387,
+      "passed": true
+    },
+    {
+      "name": "FR 2021 day-ahead annual avg vs Fraunhofer/SMARD",
+      "country": "FR",
+      "year": "2021",
+      "infographic": 109.18,
+      "reference": 109.1714,
+      "diff": 0.0086,
+      "tolerance": 1.0,
+      "unit": "EUR/MWh",
+      "reference_n_hours": 8760,
+      "passed": true
+    },
+    {
+      "name": "FR 2022 day-ahead annual avg vs Fraunhofer/SMARD",
+      "country": "FR",
+      "year": "2022",
+      "infographic": 275.87,
+      "reference": 275.8784,
+      "diff": 0.0084,
+      "tolerance": 1.0,
+      "unit": "EUR/MWh",
+      "reference_n_hours": 8760,
+      "passed": true
+    },
+    {
+      "name": "FR 2023 day-ahead annual avg vs Fraunhofer/SMARD",
+      "country": "FR",
+      "year": "2023",
+      "infographic": 96.85,
+      "reference": 96.8559,
+      "diff": 0.0059,
+      "tolerance": 1.0,
+      "unit": "EUR/MWh",
+      "reference_n_hours": 8760,
+      "passed": true
+    },
+    {
+      "name": "FR 2024 day-ahead annual avg vs Fraunhofer/SMARD",
+      "country": "FR",
+      "year": "2024",
+      "infographic": 58.03,
+      "reference": 58.0181,
+      "diff": 0.0119,
+      "tolerance": 1.0,
+      "unit": "EUR/MWh",
+      "reference_n_hours": 8784,
+      "passed": true
+    },
+    {
+      "name": "FR 2025 day-ahead annual avg vs Fraunhofer/SMARD",
+      "country": "FR",
+      "year": "2025",
+      "infographic": 61.51,
+      "reference": 61.3879,
+      "diff": 0.1221,
+      "tolerance": 1.0,
+      "unit": "EUR/MWh",
+      "reference_n_hours": 15387,
+      "passed": true
+    }
+  ]
+}
